@@ -1,0 +1,55 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+	<!-- local css -->
+	<link rel="stylesheet" href="css/boom-style.css">
+	<link href="css/pt-sans.css" orig-href="https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+	<script type="text/javascript">
+
+		function setTopImage(topImage){
+			var img = document.getElementById("top-image")
+			if (img){
+				img.src = topImage
+			}
+		}
+
+		function setArticleTitle(headerTitle){
+			var pageTitle = document.getElementById("pageTitle")
+			if (pageTitle){
+				pageTitle.innerHTML = headerTitle
+			}
+		}
+
+		function setArticleBody(encodedBodyHtml){
+			var articleBody = document.getElementById("articleBody")
+			articleBody.innerHTML = encodedBodyHtml
+		}
+	
+	function setArticleClassNames(classNames) {
+		var detail = document.getElementById("detail")
+		detail.className = classNames
+	}
+
+
+	</script>
+
+</head>
+<body style="background: none">
+	<div class="container content" id="content" style="opacity: 1; margin-top: 0px">
+		<div class="columns sixteen detail" style="opacity: 1" id="detail">
+			<div class="page-top-image">
+				<img id="top-image" src="">
+			</div>
+			<header class="page-header">
+				<h3 class="page-title" id="pageTitle"></h3>
+			</header>
+			<div class="page-body" id="articleBody">
+			</div>
+		</div>
+	</div>
+</body>
+
+<base href="https://www.boomfestival.org/" target="_blank">
+</html>

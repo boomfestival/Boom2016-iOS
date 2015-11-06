@@ -1,0 +1,77 @@
+PODS:
+  - AFNetworking (2.6.1):
+    - AFNetworking/NSURLConnection (= 2.6.1)
+    - AFNetworking/NSURLSession (= 2.6.1)
+    - AFNetworking/Reachability (= 2.6.1)
+    - AFNetworking/Security (= 2.6.1)
+    - AFNetworking/Serialization (= 2.6.1)
+    - AFNetworking/UIKit (= 2.6.1)
+  - AFNetworking/NSURLConnection (2.6.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.1)
+  - AFNetworking/Security (2.6.1)
+  - AFNetworking/Serialization (2.6.1)
+  - AFNetworking/UIKit (2.6.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - Alamofire (3.0.1)
+  - Bond (4.0.2)
+  - DACircularProgress (2.3.1)
+  - HTMLReader (0.9)
+  - KDEAudioPlayer (0.3.4)
+  - Masonry (0.6.3)
+  - MBProgressHUD (0.9.1)
+  - MWPhotoBrowser (2.1.1):
+    - DACircularProgress (~> 2.3)
+    - MBProgressHUD (~> 0.9)
+    - SDWebImage (!= 3.7.2, ~> 3.7)
+  - Realm (0.95.3):
+    - Realm/Headers (= 0.95.3)
+  - Realm/Headers (0.95.3)
+  - RealmSwift (0.95.3):
+    - Realm (= 0.95.3)
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
+  - SnapKit (0.15.0)
+  - SwiftSpinner (0.8.0)
+  - SwiftyJSON (2.3.0)
+
+DEPENDENCIES:
+  - AFNetworking
+  - Alamofire
+  - Bond
+  - HTMLReader
+  - KDEAudioPlayer
+  - Masonry
+  - MWPhotoBrowser
+  - RealmSwift
+  - SDWebImage
+  - SnapKit
+  - SwiftSpinner
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
+  Alamofire: 2457e1b2e6c46bb05c3a598c542b7bfd08893775
+  Bond: 6b4237a226f27a19cf1948e85e75a352906a28d6
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  HTMLReader: d93d3db9fe26c28c2479bcc906d3e7453377a902
+  KDEAudioPlayer: 8238a011987c675af6dfff96fe909578a05220ae
+  Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c
+  Realm: 55885fa05865344994ad8b56da96669ffa39fbf1
+  RealmSwift: 586df4b5a6d01473d2653b16e9fe7debce4a87ed
+  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
+  SwiftSpinner: 11c2c5ec7443d92f3026d3067ca8a91d4adef13f
+  SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
+
+COCOAPODS: 0.39.0
