@@ -5,18 +5,20 @@
 
 	Usage:
 
-		node make-articles-db.js [--no-cache] [-output=filename] [-every=seconds]
+		node make-articles-db.js [--no-cache] [-output=filename] [-every=seconds] [--no-cacheOnError]
 */
 "use strict"
 
 let minimist = require('minimist')
 let _ = require('underscore')
+let path = require('path')
 
 //==========
 
 let defaultOptions = {
 	cache: true,
-	output: './results.json',
+	cacheOnError: true,
+	output: path.join(__dirname, 'results.json'),
 	every: 0
 }
 

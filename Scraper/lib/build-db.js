@@ -38,24 +38,16 @@ function saveAsJson(filename, data) {
 }
 
 function build(options, callback) {
-	var cache = null
 
-	if (options.cache){
-		cache = new Cache('/tmp/boomproxy/cache', true)
-	}
+	let cache = new Cache('/tmp/boomproxy/cache', true)
+	let spider = new Spider(cache)
 
+	spider.useCache = options.cache
+	spider.useCacheOnError = options.cacheOnError
 
-	let conv = new Spider(cache)
-
-//-------- REFACTOR: Move into Spider
-// Spider should have a 'current' version of the db
-// If an error occurs when item is loaded, spider should use the old version
-// OR
-// If a load error occurs, use cached version
-// Cache is useless anyway .
 	let Results = {}
 
-	conv.on('item', function(key, item) {
+	spider.on('item', function(key, item) {
 		if (!item){
 			return
 		}
@@ -66,22 +58,22 @@ function build(options, callback) {
 				let href = link.href
 				if (!Results[href]){
 					console.log("Discovered ", href)
-					conv.queue.push(href)
+					spider.queue.push(href)
 				}
 			})
 		}
 	})
 
-	conv.on('finished', function(){
+	spider.on('finished', function(){
 		saveAsJson(options.output, Results)
 		callback(null)
 	})
 
-	conv.on('error', function(){
+	spider.on('error', function(){
 	})
 //---------------- 
 
-	return conv
+	return spider
 }
 
 module.exports = build

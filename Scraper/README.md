@@ -22,6 +22,10 @@ This json file is then served to the iOS application which uses it for it's inte
 	- every=seconds
 		Run again after number of seconds
 
+	--no-cacheOnError
+		By default, if a server error occurs (response != 200), the previously cached version of the response will 
+		be used (if exists). Use this flag to disable looking into old cache.
+
 
 ## License
 
