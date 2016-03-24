@@ -29,13 +29,17 @@ extension Entry {
 	
 	class func fromKey(key: String, callback: (err: NSError?, entry: Entry?) -> Void) {
 		
+        
 		let cached = Entry.cachedEntryWithKey(Model.realm, key: key)
 		
+        NSLog("fromKey: \(key)");
 		if cached != nil {
+            NSLog("Cached => \(key)");
 			callback(err: nil, entry: cached)
 			return
 		}
 		
+        
 		
 		let url = Entry.absolueUrlForEntry(key)
 		

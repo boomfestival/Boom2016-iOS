@@ -33,7 +33,6 @@
 		7F986ACD1BD8362F006880FE /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F986ACC1BD8362F006880FE /* String+Extensions.swift */; };
 		7F986ACF1BD91885006880FE /* BoomGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F986ACE1BD91885006880FE /* BoomGalleryViewController.swift */; };
 		7FCC32841BD2784D00D3979F /* BoomSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC32831BD2784D00D3979F /* BoomSectionViewController.swift */; };
-		7FCC32891BD29A6D00D3979F /* boom-db.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FCC32881BD29A6D00D3979F /* boom-db.json */; };
 		7FCC328B1BD29BAC00D3979F /* BoomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC328A1BD29BAC00D3979F /* BoomNavigationController.swift */; };
 		7FCC32911BD2E94E00D3979F /* BoomArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC32901BD2E94E00D3979F /* BoomArticleViewController.swift */; };
 		7FCC32951BD38F4200D3979F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC32941BD38F4200D3979F /* Model.swift */; };
@@ -74,7 +73,6 @@
 		7F986ACC1BD8362F006880FE /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		7F986ACE1BD91885006880FE /* BoomGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomGalleryViewController.swift; sourceTree = "<group>"; };
 		7FCC32831BD2784D00D3979F /* BoomSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomSectionViewController.swift; sourceTree = "<group>"; };
-		7FCC32881BD29A6D00D3979F /* boom-db.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "boom-db.json"; sourceTree = "<group>"; };
 		7FCC328A1BD29BAC00D3979F /* BoomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomNavigationController.swift; sourceTree = "<group>"; };
 		7FCC32901BD2E94E00D3979F /* BoomArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomArticleViewController.swift; sourceTree = "<group>"; };
 		7FCC32941BD38F4200D3979F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 		7FCC32871BD29A6D00D3979F /* db */ = {
 			isa = PBXGroup;
 			children = (
-				7FCC32881BD29A6D00D3979F /* boom-db.json */,
 			);
 			path = db;
 			sourceTree = "<group>";
@@ -343,7 +340,6 @@
 			files = (
 				7F697D3C1BD19AD600FC2924 /* Polygraph.otf in Resources */,
 				7F389FE01BCED0B400DBCD8A /* LaunchScreen.storyboard in Resources */,
-				7FCC32891BD29A6D00D3979F /* boom-db.json in Resources */,
 				7F697D3B1BD19AD300FC2924 /* Polygraph-Bold.otf in Resources */,
 				7F389FDD1BCED0B400DBCD8A /* Assets.xcassets in Resources */,
 				7F647EB61BD3DCE1006A707C /* html in Resources */,

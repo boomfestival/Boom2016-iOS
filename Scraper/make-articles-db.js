@@ -27,6 +27,8 @@ let options = _.extend(defaultOptions, argv)
 
 console.log(options)
 
+console.log("Output = ", options.output)
+return
 var runs = 0 
 
 function run(options) {

@@ -4,16 +4,44 @@
 //
 //  Created by Florin Braghis on 10/21/15.
 //  Copyright © 2015 CodeShaman. All rights reserved.
-//
+//  Mandatory payment license
 
 import SwiftyJSON
 import RealmSwift
 
+func strtrim(s: String) -> String
+{
+    return s.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet());
+}
+
+extension Entry
+{
+    static func adjustKey(key: String) -> String
+    {
+        var s = key;
+        if s.hasSuffix("/") {
+            s = String(key.characters.dropLast())
+        }
+        
+        if s.hasPrefix("/")
+        {
+            s = String(key.characters.dropFirst());
+        }
+        
+        return s
+    }
+}
+
+
 extension SectionItem {
+    
 	convenience init(json: JSON){
 		self.init()
 		href = json["href"].string ?? ""
-		imageURL = json["imageURL"].string ?? ""
+        
+        href = Entry.adjustKey(href);
+
+        imageURL = json["imageURL"].string ?? ""
 		title = json["title"].string ?? ""
 	}
 }
@@ -45,8 +73,8 @@ extension GalleryEntry {
 	convenience init(key: String, json: JSON){
 		self.init()
 		self.key = key
-		self.galleryId = json["galleryId"].string ?? ""
-		self.title = json["title"].string ?? ""
+        self.galleryId = strtrim(json["galleryId"].string ?? "")
+        self.title = strtrim(json["title"].string ?? "")
 	}
 }
 
@@ -82,8 +110,10 @@ import Alamofire
 
 class Model {
 
-	static var dbURL = "http://www.boomhub.org/db/results.json"
-	static var realm: Realm?
+	//static var dbURL = "http://www.boomhub.org/db/results.json"
+	
+    static var dbURL = "https://www.boomfestival.org/boom2016/mobile-app/feed4iosapp/"
+    static var realm: Realm?
 	
 	static func updateIfNecessary(callback: ((err: NSError?)->Void)?) {
 
@@ -120,15 +150,27 @@ class Model {
 	static func importFromJSONData(realm: Realm, data: NSData){
 		var count = 0
 		let json = JSON(data: data)
-		realm.write {
-			realm.deleteAll()
-			for (key,item):(String, JSON) in json {
-				if let entry = Entry.fromJSON(key, item: item){
-					count++
-					realm.add(entry)
-				}
-			}
-		}
+        
+        do
+        {
+            try realm.write {
+                realm.deleteAll()
+                for (var key,item):(String, JSON) in json {
+                    
+                    key = Entry.adjustKey(key)
+                    
+                    if let entry = Entry.fromJSON(key, item: item){
+                        
+                        NSLog("key=\(entry.key)");
+                        count += 1
+                        realm.add(entry)
+                    }
+                }
+            }
+        } catch _ {
+            NSLog("Error: Realm write failed");
+        }
+        
 		
 		NSLog("importFromJSONData: imported \(count) entries.")
 	}
@@ -140,11 +182,17 @@ class Model {
 		} catch _ {}
 		
 		let bundle = NSBundle.mainBundle().pathForResource("boom-db", ofType: "json")
-		guard let data = NSData(contentsOfFile: bundle!) else {
-			NSLog("Unable to load contents of file")
-			return
-		}
-		importFromJSONData(realm, data: data)
-		NSLog("importFromBundle: import finished")
+        if bundle != nil
+        {
+            guard let data = NSData(contentsOfFile: bundle!) else {
+                NSLog("Unable to load contents of file")
+                return
+            }
+            importFromJSONData(realm, data: data)
+            NSLog("importFromBundle: import finished")
+        } else
+        {
+            NSLog("Loading with empty db");
+        }
 	}
 }

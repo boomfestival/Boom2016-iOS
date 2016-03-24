@@ -77,7 +77,9 @@ extension Entry {
 		guard let realm = realm else {
 			return nil
 		}
-		
+        
+        let key = Entry.adjustKey(key);
+        
 		let sectionEntry = realm.objects(SectionEntry).filter("key='\(key)'")
 		if sectionEntry.count > 0 {
 			entry = sectionEntry.first
