@@ -39,6 +39,7 @@
 		7FE46B451BDC2BE300FE37DB /* BoomZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE46B421BDC2BE300FE37DB /* BoomZoomView.swift */; };
 		7FE46B461BDC2BE300FE37DB /* UIScrollView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE46B431BDC2BE300FE37DB /* UIScrollView+Ext.swift */; };
 		7FE46B471BDC2BE300FE37DB /* BoomCirclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE46B441BDC2BE300FE37DB /* BoomCirclesView.swift */; };
+		7FFA77311CA4313D00A698C9 /* boom-db.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA77301CA4313D00A698C9 /* boom-db.json */; };
 		8A331FA6FC3B94EAAA4F7C4A /* Pods_Boom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0869EEBFBE729379C81AA70 /* Pods_Boom.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		7FE46B421BDC2BE300FE37DB /* BoomZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomZoomView.swift; sourceTree = "<group>"; };
 		7FE46B431BDC2BE300FE37DB /* UIScrollView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ext.swift"; sourceTree = "<group>"; };
 		7FE46B441BDC2BE300FE37DB /* BoomCirclesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomCirclesView.swift; sourceTree = "<group>"; };
+		7FFA77301CA4313D00A698C9 /* boom-db.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "boom-db.json"; sourceTree = "<group>"; };
 		B0869EEBFBE729379C81AA70 /* Pods_Boom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -261,6 +263,7 @@
 		7FCC32871BD29A6D00D3979F /* db */ = {
 			isa = PBXGroup;
 			children = (
+				7FFA77301CA4313D00A698C9 /* boom-db.json */,
 			);
 			path = db;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				7F389FDD1BCED0B400DBCD8A /* Assets.xcassets in Resources */,
 				7F647EB61BD3DCE1006A707C /* html in Resources */,
 				7F389FDB1BCED0B400DBCD8A /* Main.storyboard in Resources */,
+				7FFA77311CA4313D00A698C9 /* boom-db.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +493,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -527,7 +531,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -543,7 +547,7 @@
 				INFOPLIST_FILE = Boom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.codeshaman.boom.Boom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boomfestival.2016;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "530c13b0-6ddd-49cf-8436-d920c29217cb";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -559,7 +563,7 @@
 				INFOPLIST_FILE = Boom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.codeshaman.boom.Boom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boomfestival.2016;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "530c13b0-6ddd-49cf-8436-d920c29217cb";
 				TARGETED_DEVICE_FAMILY = "1,2";

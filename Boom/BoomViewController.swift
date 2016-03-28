@@ -8,14 +8,64 @@
 
 
 import UIKit
-import RealmSwift
+import Realm
+
 import SwiftSpinner
 
 class BoomViewController : UIViewController {
 	
 	var sectionColor = UIColor.blueColor()
 	var sectionTextColor = UIColor.whiteColor()
-	
+    var realmNotification: RLMNotificationToken?
+    var entry: Entry?
+    var entryKey: String = ""
+    
+
+    init()
+    {
+        super.init(nibName: nil, bundle: nil)
+        realmNotification = Model.realm!.addNotificationBlock { notification, realm in
+            self.loadKey()
+        }
+    }
+    
+    convenience init(key: String)
+    {
+        self.init()
+        self.entryKey = key
+        loadKey()
+    }
+    
+    convenience init(entry: Entry)
+    {
+        self.init()
+        self.entry = entry
+        self.entryKey = entry.key
+    }
+    
+    deinit
+    {
+        realmNotification?.stop()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func loadKey()
+    {
+        guard let res = Entry.entryWithKey(Model.realm, key: self.entryKey) else
+        {
+            print("Entry is not available", self.entryKey)
+            self.dismissViewControllerAnimated(true, completion: nil)
+            return
+        }
+        self.entry = res
+        entryDidChange()
+    }
+    
+    func entryDidChange() {}
+    
 	static func viewControllerForEntry(entry: Entry?) -> BoomViewController? {
 		guard let entry = entry else {
 			return nil
@@ -24,21 +74,23 @@ class BoomViewController : UIViewController {
 		var vc: BoomViewController?
 		if entry is SectionEntry {
 			
-			let sectionVC = BoomSectionViewController(section: entry as! SectionEntry)
+            let sectionVC = BoomSectionViewController(entry: entry)
 			vc = sectionVC
 		}
 		else if entry is ArticleEntry {
-			vc = BoomArticleViewController(article: entry as! ArticleEntry)
+			vc = BoomArticleViewController(entry: entry)
 		}
 		else if entry is GalleryEntry {
 			let gallery = entry as! GalleryEntry
-			let galVC = BoomGalleryViewController()
+            let galVC = BoomGalleryViewController(entry: entry)
 			galVC.galleryId = gallery.galleryId
 			vc = galVC
 			
 		}
 		return vc
 	}
+    
+    
 }
 
 public func executeAfter(delay:Double, closure:()->()) {

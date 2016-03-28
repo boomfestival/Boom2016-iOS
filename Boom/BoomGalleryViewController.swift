@@ -57,7 +57,7 @@ class BoomGalleryViewController: BoomViewController, MWPhotoBrowserDelegate {
 	deinit {
 		self.request?.cancel()
 	}
-	
+    
 	func createPhotoBrowser(){
 		photoBrowser = MWPhotoBrowser(delegate: self)
 		photoBrowser.displayActionButton = false

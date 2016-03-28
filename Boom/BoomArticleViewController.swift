@@ -14,12 +14,8 @@ class BoomArticleViewController : BoomViewController, UIWebViewDelegate {
 
 	var webView = UIWebView()
 	var article: ArticleEntry!
-	
-	init(article: ArticleEntry){
-		super.init(nibName: nil, bundle: nil)
-		self.article = article
-	}
-	
+    var isPageLoaded = false
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.backgroundColor = UIColor.clearColor()
@@ -39,17 +35,37 @@ class BoomArticleViewController : BoomViewController, UIWebViewDelegate {
 		webView.loadRequest(request)
 		
 		webView.delegate = self
-		self.setTitleText(self.article.title)
+        
+        loadArticle()
 
 		//Uncomment if you want to be able to debug the javascript with Safari
 		//self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Set", style: .Plain, target: self, action: "setPageContent")
 	}
+    
+    override func entryDidChange() {
+        loadArticle()
+    }
+    
+    func loadArticle()
+    {
+        guard let res = self.entry as? ArticleEntry else
+        {
+            NSLog("New entry not an article: ", self.entryKey)
+            return
+        }
+        self.article = res
+        
+        if (isViewLoaded())
+        {
+            self.setTitleText(self.article.title)
+            setPageContent()
+        }
+    }
 
-	required init?(coder aDecoder: NSCoder) {
-	    fatalError("init(coder:) has not been implemented")
-	}
-	
 	func setPageContent() {
+        
+        guard isPageLoaded else { return }
+        
 		let fnCall = "setArticleTitle('\(self.article.title)')"
 		webView.stringByEvaluatingJavaScriptFromString(fnCall)
 		
@@ -66,6 +82,7 @@ class BoomArticleViewController : BoomViewController, UIWebViewDelegate {
 
 	
 	func webViewDidFinishLoad(webView: UIWebView) {
+        isPageLoaded = true
 		self.setPageContent()
 		//This hack gets rid of a nasty freeze of ~ 5 seconds when the page is loaded the first time
 		//Could not determine the cause of that
