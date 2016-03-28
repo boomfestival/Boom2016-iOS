@@ -54,7 +54,7 @@ class BoomMenuViewController : UIViewController {
 			make.bottom.equalTo(self.view)
 			make.width.equalTo(250)
 		}
-		let tap = UITapGestureRecognizer(target: self, action: "didTap:")
+		let tap = UITapGestureRecognizer(target: self, action: #selector(BoomMenuViewController.didTap(_:)))
 		tap.cancelsTouchesInView = false
 		view.addGestureRecognizer(tap)
 	}

@@ -48,7 +48,7 @@ class BoomListCollectionViewController : UICollectionViewController{
 		cell.titleLabel.text = title
 		cell.contentView.backgroundColor = cellBackgroundColor
 		cell.titleLabel.textColor = cellTextColor
-		cell.animateAppearance(indexPath.row)
+		//cell.animateAppearance(indexPath.row)
 		return cell
 	}
 	

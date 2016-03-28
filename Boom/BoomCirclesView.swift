@@ -90,7 +90,7 @@ class BoomSpinView : UIView {
 		self.addSubview(discs)
 		
 		if let lastImage = self.discs.imageViews.last {
-			let singleTap = UITapGestureRecognizer(target: self, action: "didTapSunMoon:")
+			let singleTap = UITapGestureRecognizer(target: self, action: #selector(BoomSpinView.didTapSunMoon(_:)))
 			singleTap.numberOfTapsRequired = 1
 			lastImage.addGestureRecognizer(singleTap)
 		}

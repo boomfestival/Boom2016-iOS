@@ -34,17 +34,17 @@ class AudioPlayerViewController : UIViewController {
 		audioPlayer.delegate = self
 		currentItem = AudioItem(highQualitySoundURL: NSURL(string: "https://www.boomfestival.org/boom2016/audio/Aes_Dana_Live.mp3")!, mediumQualitySoundURL: nil, lowQualitySoundURL: nil)
 		
-		audioControls.playPause.addTarget(self, action: "playPause", forControlEvents: .TouchUpInside)
-		audioControls.slider.addTarget(self, action: "scrub:", forControlEvents: UIControlEvents.ValueChanged)
+		audioControls.playPause.addTarget(self, action: #selector(AudioPlayerViewController.playPause), forControlEvents: .TouchUpInside)
+		audioControls.slider.addTarget(self, action: #selector(AudioPlayerViewController.scrub(_:)), forControlEvents: UIControlEvents.ValueChanged)
 		
-		let tapGesture = UITapGestureRecognizer(target: self, action: "didTouch")
+		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AudioPlayerViewController.didTouch))
 		tapGesture.numberOfTapsRequired = 1
 		self.view.addGestureRecognizer(tapGesture)
 	}
 	
 	func hideSelfAfterSomeTime(){
 		hideTimer?.invalidate()
-		hideTimer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "hideSelf", userInfo: nil, repeats: false)
+		hideTimer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(AudioPlayerViewController.hideSelf), userInfo: nil, repeats: false)
 	}
 	
 	func hideSelf() {
@@ -110,6 +110,13 @@ extension AudioPlayerViewController : AudioPlayerDelegate {
 	func audioPlayer(audioPlayer: AudioPlayer, willStartPlayingItem item: AudioItem) {
 		NSLog("audioPlayer will start playing item: \(item)")
 	}
+    func audioPlayer(audioPlayer: AudioPlayer, didUpdateEmptyMetadataOnItem item: AudioItem, withData data: Metadata) {
+        
+    }
+    
+    func audioPlayer(audioPlayer: AudioPlayer, didLoadRange range: AudioPlayer.TimeRange, forItem item: AudioItem) {
+        
+    }
 }
 
 

@@ -42,12 +42,12 @@ class BoomZoomView : UIView, UIScrollViewDelegate {
 		scrollView.canCancelContentTouches = true
 		scrollView.zoomScale = scrollView.minimumZoomScale
 		
-		let doubleTap = UITapGestureRecognizer(target: self, action: "didDoubleTap:")
+		let doubleTap = UITapGestureRecognizer(target: self, action: #selector(BoomZoomView.didDoubleTap(_:)))
 		doubleTap.numberOfTapsRequired = 2
 		scrollView.addGestureRecognizer(doubleTap)
 		
 		
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "didChangeOrientation", name: UIDeviceOrientationDidChangeNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BoomZoomView.didChangeOrientation), name: UIDeviceOrientationDidChangeNotification, object: nil)
 	}
 
 	func didChangeOrientation (){

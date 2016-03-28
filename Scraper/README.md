@@ -8,7 +8,7 @@ This json file is then served to the iOS application which uses it for it's inte
 ## Installing
 
 	$ npm install
-	$ node make-articles-db.js [--no-cache] [-output=filename] [-every=seconds]
+	$ node make-articles-db.js [--no-cache] [-output=filename] [-every=seconds] [--no-cacheOnError]
 
 
 ## Options
