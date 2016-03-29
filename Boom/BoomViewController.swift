@@ -24,8 +24,11 @@ class BoomViewController : UIViewController {
     init()
     {
         super.init(nibName: nil, bundle: nil)
-        realmNotification = Model.realm!.addNotificationBlock { notification, realm in
-            self.loadKey()
+        realmNotification = Model.realm!.addNotificationBlock { [weak self] notification, realm in
+            if let strongSelf = self
+            {
+                strongSelf.loadKey()
+            }
         }
     }
     
