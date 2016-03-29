@@ -179,7 +179,6 @@ extension GalleryEntry {
 	class func extractFromHtmlText(html: NSData) -> GalleryEntry?{
 		var result: GalleryEntry?
 		if let str = String(data: html, encoding: NSUTF8StringEncoding) {
-			//let match = data.match(/cpo\[\"_fid\"\]\s*\=\s*\"(.+?)\"/)
 			let matches = matchesForRegexInText("cpo\\[\\\"_fid\\\"\\]\\s*\\=\\s*\\\"(.+?)\\\"", text: str, groupIndex: 1)
 			if matches.count > 0 {
 				result = GalleryEntry()

@@ -14,6 +14,16 @@ func strtrim(s: String) -> String
     return s.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet());
 }
 
+extension JSON
+{
+    func htmlUnescapeString(key: String) -> String
+    {
+        let tempStr = self[key].string ?? ""
+        let escapedStr = String(htmlEncodedString: tempStr)
+        return escapedStr
+    }
+}
+
 extension Entry
 {
     static func adjustKey(key: String) -> String
@@ -37,12 +47,10 @@ extension SectionItem {
     
 	convenience init(json: JSON){
 		self.init()
-		href = json["href"].string ?? ""
-        
+        title = json.htmlUnescapeString("title")
+        href = json["href"].string ?? ""
         href = Entry.adjustKey(href);
-
         imageURL = json["imageURL"].string ?? ""
-		title = json["title"].string ?? ""
 	}
 }
 
@@ -62,8 +70,8 @@ extension ArticleEntry {
 	convenience init(key: String, json: JSON){
 		self.init()
 		self.key = key
-		title = json["title"].string ?? ""
-		imageURL = json["imageURL"].string ?? ""
+        title = json.htmlUnescapeString("title")
+        imageURL = json["imageURL"].string ?? ""
 		body = json["body"].string ?? ""
 		classNames = json["className"].string ?? "columns sixteen detail"
 	}
