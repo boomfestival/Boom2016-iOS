@@ -78,7 +78,6 @@ class BoomGalleryViewController: BoomViewController, MWPhotoBrowserDelegate {
 		return UInt(self.items.count)
 	}
 	
-	
 	func photoBrowser(photoBrowser: MWPhotoBrowser!, thumbPhotoAtIndex index: UInt) -> MWPhotoProtocol! {
 		let item = self.items[Int(index)]
 		
