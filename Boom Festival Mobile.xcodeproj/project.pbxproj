@@ -58,7 +58,7 @@
 		7F31B1441BE91FB000D08EA3 /* BoomSectionCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomSectionCollectionViewController.swift; sourceTree = "<group>"; };
 		7F31B1471BECA64500D08EA3 /* AudioControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioControlsView.swift; sourceTree = "<group>"; };
 		7F31B1491BECA68700D08EA3 /* BoomAudioPlayerContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomAudioPlayerContainer.swift; sourceTree = "<group>"; };
-		7F389FD21BCED0B400DBCD8A /* Boom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F389FD21BCED0B400DBCD8A /* Boom Festival Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boom Festival Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F389FD51BCED0B400DBCD8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F389FDA1BCED0B400DBCD8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7F389FDC1BCED0B400DBCD8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 		7F389FD31BCED0B400DBCD8A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7F389FD21BCED0B400DBCD8A /* Boom.app */,
+				7F389FD21BCED0B400DBCD8A /* Boom Festival Mobile.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,9 +288,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7F389FD11BCED0B400DBCD8A /* Boom */ = {
+		7F389FD11BCED0B400DBCD8A /* Boom Festival Mobile */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7F389FE41BCED0B400DBCD8A /* Build configuration list for PBXNativeTarget "Boom" */;
+			buildConfigurationList = 7F389FE41BCED0B400DBCD8A /* Build configuration list for PBXNativeTarget "Boom Festival Mobile" */;
 			buildPhases = (
 				6950F76787F7815DEF5D3704 /* Check Pods Manifest.lock */,
 				7F389FCE1BCED0B400DBCD8A /* Sources */,
@@ -303,9 +303,9 @@
 			);
 			dependencies = (
 			);
-			name = Boom;
+			name = "Boom Festival Mobile";
 			productName = Boom;
-			productReference = 7F389FD21BCED0B400DBCD8A /* Boom.app */;
+			productReference = 7F389FD21BCED0B400DBCD8A /* Boom Festival Mobile.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -328,7 +328,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7F389FCD1BCED0B400DBCD8A /* Build configuration list for PBXProject "Boom" */;
+			buildConfigurationList = 7F389FCD1BCED0B400DBCD8A /* Build configuration list for PBXProject "Boom Festival Mobile" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -341,7 +341,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7F389FD11BCED0B400DBCD8A /* Boom */,
+				7F389FD11BCED0B400DBCD8A /* Boom Festival Mobile */,
 			);
 		};
 /* End PBXProject section */
@@ -562,7 +562,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.goodmood.boom-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Boom Festival Mobile";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -579,7 +579,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.goodmood.boom-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Boom Festival Mobile";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -588,7 +588,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7F389FCD1BCED0B400DBCD8A /* Build configuration list for PBXProject "Boom" */ = {
+		7F389FCD1BCED0B400DBCD8A /* Build configuration list for PBXProject "Boom Festival Mobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7F389FE21BCED0B400DBCD8A /* Debug */,
@@ -597,7 +597,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7F389FE41BCED0B400DBCD8A /* Build configuration list for PBXNativeTarget "Boom" */ = {
+		7F389FE41BCED0B400DBCD8A /* Build configuration list for PBXNativeTarget "Boom Festival Mobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7F389FE51BCED0B400DBCD8A /* Debug */,

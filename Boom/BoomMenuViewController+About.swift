@@ -44,7 +44,7 @@ extension BoomMainViewController
         aboutView.copyrightHolderName = "Good Mood Ltd\nDeveloped by Florin Braghis\nflorin.braghis@gmail.com"
         
         let contents = String.contentsOfTextFile("opensource")
-        aboutView.addAdditionalButton("Source code", content: contents)
+        aboutView.addAdditionalButton("Feedback & source code", content: contents)
         
         // Add the aboutView to the NavigationController:
         aboutNav.setViewControllers([aboutView], animated: false)
