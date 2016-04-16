@@ -41,7 +41,7 @@ extension BoomMainViewController
         aboutView.headerTextColor = .whiteColor()
         aboutView.blurStyle = .Dark
         
-        aboutView.copyrightHolderName = "Good Mood Ltd\nDeveloped by Florin Braghis\nflorin.braghis@gmail.com"
+        aboutView.copyrightHolderName = "Good Mood Ltd (it@goodmood.com)\nDeveloped by Florin Braghis\nflorin.braghis@gmail.com"
         
         let contents = String.contentsOfTextFile("opensource")
         aboutView.addAdditionalButton("Feedback & source code", content: contents)

@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SwiftSpinner
 
 
 
@@ -18,17 +19,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var realm: Realm!
 
 
+    func prepareRealm() -> Bool
+    {
+        guard let path = NSBundle.mainBundle().pathForResource("seed", ofType: "realm") else
+        {
+            return false
+        }
+        
+        let defaultPath = Realm.Configuration.defaultConfiguration.path!
+        
+        do {
+            try NSFileManager.defaultManager().copyItemAtPath(path, toPath: defaultPath)
+            
+        } catch {
+        
+            NSLog("Exception while copying database to default path: %s", defaultPath)
+            return false
+        }
+        
+        return true
+    }
+    
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
-		self.realm = try! Realm()
-		Model.realm = self.realm
-		
 		let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if defaults.stringForKey("isDevMode") == "1" {
+            Model.isDevMode = true
+        }
 		
 		if defaults.boolForKey("hasBeenStartedBefore") == false {
-			Model.importFromBundle(self.realm)
-			defaults.setBool(true, forKey: "hasBeenStartedBefore")
+            if prepareRealm() {
+                defaults.setBool(true, forKey: "hasBeenStartedBefore")
+            } else
+            {
+                NSLog("prepareRealm returned false. Now I don't know what to do. Maybe alert user? Ah, tequilla in my blood says: Nothing wrong will ever happen!")
+                SwiftSpinner.show("Could not initialize database.", animated: false)
+            }
 		}
+        
+        self.realm = try! Realm()
+        Model.realm = self.realm
+
 		return true
 	}
 	
