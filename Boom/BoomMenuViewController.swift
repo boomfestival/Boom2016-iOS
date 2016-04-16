@@ -16,6 +16,7 @@ class BoomMenuViewController : UIViewController {
 	var menuView: BoomMenuView!
 	var menuItemsCollectionView: BoomMenuCollectionViewController!
 	var delegate: BoomMenuViewControllerDelegate?
+    var audioPlayerViewController: AudioPlayerViewController!
 	var menuItems: [MenuItem] {
 		get {
 			let whiteColor = UInt(0xffffff)
@@ -43,9 +44,14 @@ class BoomMenuViewController : UIViewController {
 		menuItemsCollectionView = BoomMenuCollectionViewController(collectionViewLayout: flowLayout)
 		menuItemsCollectionView.delegate = self.delegate
 		menuItemsCollectionView.menuItems = menuItems
+        menuItemsCollectionView.collectionView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+        
+        audioPlayerViewController = AudioPlayerViewController()
+        let audioPlayerView = BoomAudioPlayerContainer(frame: menuItemsCollectionView.view.bounds, audioControls: audioPlayerViewController.view, contentView: menuItemsCollectionView.view)
+
 
 		//Decorator
-		menuView = BoomMenuView(frame: view.bounds, contentView: menuItemsCollectionView.view)
+		menuView = BoomMenuView(frame: view.bounds, contentView: audioPlayerView)
 		view.addSubview(menuView)
 		
 		menuView.snp_makeConstraints { (make) -> Void in

@@ -34,8 +34,8 @@ class AudioPlayerViewController : UIViewController {
 		audioPlayer.delegate = self
 		currentItem = AudioItem(highQualitySoundURL: NSURL(string: "https://www.boomfestival.org/boom2016/audio/Aes_Dana_Live.mp3")!, mediumQualitySoundURL: nil, lowQualitySoundURL: nil)
 		
-		audioControls.playPause.addTarget(self, action: #selector(AudioPlayerViewController.playPause), forControlEvents: .TouchUpInside)
-		audioControls.slider.addTarget(self, action: #selector(AudioPlayerViewController.scrub(_:)), forControlEvents: UIControlEvents.ValueChanged)
+		audioControls.playPause.addTarget(self, action: #selector(playPause), forControlEvents: .TouchUpInside)
+		audioControls.slider.addTarget(self, action: #selector(scrub(_:)), forControlEvents: UIControlEvents.ValueChanged)
 		
 		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AudioPlayerViewController.didTouch))
 		tapGesture.numberOfTapsRequired = 1

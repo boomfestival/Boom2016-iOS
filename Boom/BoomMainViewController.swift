@@ -16,7 +16,6 @@ import AVFoundation
 class BoomMainViewController : UIViewController, UINavigationControllerDelegate, BoomMenuViewControllerDelegate {
 	var meditatingView: BoomMeditatingView!
 	let contentNavigationController = BoomNavigationController()
-	var audioPlayerViewController : AudioPlayerViewController!
     var emptyViewController: UIViewController!
 	
 	override func viewDidLoad() {
@@ -34,14 +33,11 @@ class BoomMainViewController : UIViewController, UINavigationControllerDelegate,
         meditatingView.addGestureRecognizer(swipe)
         meditatingView.circlesView.onTapSunAndMoon(self, action: #selector(didTapSunAndMoon(_:)))
 
-        audioPlayerViewController = AudioPlayerViewController()
-        let subView = BoomAudioPlayerContainer(frame: self.view.bounds, audioControls: audioPlayerViewController.view, contentView: meditatingView)
-        view.addSubview(subView)
+        view.addSubview(meditatingView)
         
-        subView.snp_makeConstraints { (make) -> Void in
+        meditatingView.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(self.view)
         }
-
     }
     
     func setupContentNavigationController() {
