@@ -8,14 +8,9 @@
 
 import UIKit
 
-protocol BoomZoomViewDelegate {
-	func boomZoomDidZoomToMinScale(boomZoom: BoomZoomView)
-}
-
 class BoomZoomView : UIView, UIScrollViewDelegate {
 	var contentView: UIView!
 	var scrollView: UIScrollView!
-	var delegate: BoomZoomViewDelegate?
 	var deviceOrientation = UIDeviceOrientation.Unknown
 	
 	
@@ -37,7 +32,7 @@ class BoomZoomView : UIView, UIScrollViewDelegate {
 		scrollView.delegate = self
 		scrollView.minimumZoomScale = self.bounds.width / contentSize.width
 		//scrollView.minimumZoomScale = 0.259
-		assert(scrollView.minimumZoomScale > 0.0)
+		//assert(scrollView.minimumZoomScale > 0.0)
 		scrollView.maximumZoomScale = 2.0
 		scrollView.canCancelContentTouches = true
 		scrollView.zoomScale = scrollView.minimumZoomScale
@@ -118,7 +113,6 @@ class BoomZoomView : UIView, UIScrollViewDelegate {
 		if (self.scrollView.zoomScale == self.scrollView.minimumZoomScale){
 			//Center the subview
 			centerContentView()
-			self.delegate?.boomZoomDidZoomToMinScale(self)
 		}
 	}
 	

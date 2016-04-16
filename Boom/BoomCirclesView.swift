@@ -88,13 +88,19 @@ class BoomSpinView : UIView {
 		
 		self.discs = RotatingDiscsView(frame: self.bounds, imageNames: imageNames)
 		self.addSubview(discs)
+        
+        //onTapSunAndMoon(#selector(BoomSpinView.didTapSunMoon(_:)))
 		
-		if let lastImage = self.discs.imageViews.last {
-			let singleTap = UITapGestureRecognizer(target: self, action: #selector(BoomSpinView.didTapSunMoon(_:)))
-			singleTap.numberOfTapsRequired = 1
-			lastImage.addGestureRecognizer(singleTap)
-		}
 	}
+    
+    func onTapSunAndMoon(target: AnyObject, action: Selector)
+    {
+        if let lastImage = self.discs.imageViews.last {
+            let singleTap = UITapGestureRecognizer(target: target, action: action)
+            singleTap.numberOfTapsRequired = 1
+            lastImage.addGestureRecognizer(singleTap)
+        }
+    }
 	
 	func contentSize() -> CGSize {
 		//return the 'circle-layer' size as the 'content size'

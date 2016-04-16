@@ -44,3 +44,21 @@ extension String {
 		return result
 	}
 }
+
+extension String
+{
+    static func contentsOfTextFile(name: String) -> String
+    {
+        guard let path = NSBundle.mainBundle().pathForResource(name, ofType: "txt") else {
+            NSLog("Path not found: %s", name)
+            return ""
+        }
+        
+        guard let result = try? String(contentsOfFile: path) else
+        {
+            NSLog("Could not load contents of: %s", path)
+            return ""
+        }
+        return result
+    }
+}

@@ -30,6 +30,9 @@
 		7F697D3E1BD19BC100FC2924 /* BoomMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F697D3D1BD19BC100FC2924 /* BoomMenuViewController.swift */; };
 		7F697D401BD1A0D900FC2924 /* BoomMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F697D3F1BD1A0D900FC2924 /* BoomMainViewController.swift */; };
 		7F697D441BD1AA9D00FC2924 /* UIColor+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F697D431BD1AA9D00FC2924 /* UIColor+Extra.swift */; };
+		7F81A96F1CC2B1A800679A65 /* BoomMenuViewController+About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F81A96E1CC2B1A800679A65 /* BoomMenuViewController+About.swift */; };
+		7F81A9711CC2B1F100679A65 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F81A9701CC2B1F100679A65 /* Acknowledgements.plist */; };
+		7F81A9731CC2C1FB00679A65 /* opensource.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F81A9721CC2C1FB00679A65 /* opensource.txt */; };
 		7F986ACD1BD8362F006880FE /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F986ACC1BD8362F006880FE /* String+Extensions.swift */; };
 		7F986ACF1BD91885006880FE /* BoomGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F986ACE1BD91885006880FE /* BoomGalleryViewController.swift */; };
 		7FCC32841BD2784D00D3979F /* BoomSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCC32831BD2784D00D3979F /* BoomSectionViewController.swift */; };
@@ -71,6 +74,9 @@
 		7F697D3D1BD19BC100FC2924 /* BoomMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomMenuViewController.swift; sourceTree = "<group>"; };
 		7F697D3F1BD1A0D900FC2924 /* BoomMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomMainViewController.swift; sourceTree = "<group>"; };
 		7F697D431BD1AA9D00FC2924 /* UIColor+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extra.swift"; sourceTree = "<group>"; };
+		7F81A96E1CC2B1A800679A65 /* BoomMenuViewController+About.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BoomMenuViewController+About.swift"; sourceTree = "<group>"; };
+		7F81A9701CC2B1F100679A65 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
+		7F81A9721CC2C1FB00679A65 /* opensource.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = opensource.txt; sourceTree = "<group>"; };
 		7F986ACC1BD8362F006880FE /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		7F986ACE1BD91885006880FE /* BoomGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomGalleryViewController.swift; sourceTree = "<group>"; };
 		7FCC32831BD2784D00D3979F /* BoomSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomSectionViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 				7F31B1331BE8E70F00D08EA3 /* Meditation */,
 				7F31B1321BE8E6F700D08EA3 /* Menu  */,
 				7F697D3F1BD1A0D900FC2924 /* BoomMainViewController.swift */,
+				7F81A96E1CC2B1A800679A65 /* BoomMenuViewController+About.swift */,
 				7F389FD91BCED0B400DBCD8A /* Main.storyboard */,
 			);
 			name = "Main View";
@@ -245,8 +252,10 @@
 				7F697D3A1BD19AA100FC2924 /* Font */,
 				7FCC32871BD29A6D00D3979F /* db */,
 				7F389FE11BCED0B400DBCD8A /* Info.plist */,
+				7F81A9701CC2B1F100679A65 /* Acknowledgements.plist */,
 				7F389FDC1BCED0B400DBCD8A /* Assets.xcassets */,
 				7F647EB51BD3DCE1006A707C /* html */,
+				7F81A9721CC2C1FB00679A65 /* opensource.txt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -345,8 +354,10 @@
 				7F697D3C1BD19AD600FC2924 /* Polygraph.otf in Resources */,
 				7F389FE01BCED0B400DBCD8A /* LaunchScreen.storyboard in Resources */,
 				7F697D3B1BD19AD300FC2924 /* Polygraph-Bold.otf in Resources */,
+				7F81A9711CC2B1F100679A65 /* Acknowledgements.plist in Resources */,
 				7F389FDD1BCED0B400DBCD8A /* Assets.xcassets in Resources */,
 				7F647EB61BD3DCE1006A707C /* html in Resources */,
+				7F81A9731CC2C1FB00679A65 /* opensource.txt in Resources */,
 				7F389FDB1BCED0B400DBCD8A /* Main.storyboard in Resources */,
 				7FFA77311CA4313D00A698C9 /* boom-db.json in Resources */,
 			);
@@ -413,6 +424,7 @@
 				7FCC32841BD2784D00D3979F /* BoomSectionViewController.swift in Sources */,
 				7FE46B471BDC2BE300FE37DB /* BoomCirclesView.swift in Sources */,
 				7F31B1371BE8F6AA00D08EA3 /* BoomMenuView.swift in Sources */,
+				7F81A96F1CC2B1A800679A65 /* BoomMenuViewController+About.swift in Sources */,
 				7F647EBA1BD68ADF006A707C /* BoomViewController.swift in Sources */,
 				7F647EBE1BD6A819006A707C /* Model+Network.swift in Sources */,
 				7F31B1431BE916A700D08EA3 /* BoomSectionCollectionViewCell.swift in Sources */,
@@ -547,7 +559,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Boom/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.goodmood.boom-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -564,7 +576,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Boom/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.goodmood.boom-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -1,0 +1,8 @@
+Boom Festival iOS app is Free Software !
+
+You can download and examine the source code, modify and submit patches or use the code in your own projects !
+
+Here's the Github repository:
+
+https://github.com/codeboost/Boom2016-iOS
+

@@ -56,25 +56,20 @@ class BoomMeditatingView : UIView {
 	}
 	
 	func showContentView() {
-		let scale = CGAffineTransformMakeScale(0.01, 0.01)
-		contentView.transform = scale
 		contentView.hidden = false
-		UIView.animateWithDuration(1.0,
-			delay: 0,
-			options: UIViewAnimationOptions.CurveEaseIn,
-			animations: {
-				self.contentView.transform = CGAffineTransformIdentity
-			}, completion: nil)
+        animateContentView(CGAffineTransformIdentity, nil)
 	}
 
 	func maximizeContentView(completion: (() -> Void)?){
 		animateContentView(CGAffineTransformMakeScale(10.0, 10.0), completion)
 	}
 	
-	func minimizeContentView(completion: (() -> Void)?) {
-		//animateContentView(CGAffineTransformMakeScale(0.001, 0.01), completion)
-		let height = self.contentView!.frame.size.height
-		animateContentView(CGAffineTransformMakeTranslation(0, -height), completion)
+    func minimizeContentView(push: Bool, completion: (() -> Void)?) {
+		//let height = self.contentView!.frame.size.height
+        var width = self.contentView!.frame.size.width
+        if push { width = -width }
+        
+		animateContentView(CGAffineTransformMakeTranslation(width, 0), completion)
 	}
 	
 	func restoreContentView(completion: (() -> Void)?) {

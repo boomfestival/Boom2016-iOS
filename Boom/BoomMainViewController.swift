@@ -13,56 +13,81 @@ import SnapKit
 import AVFoundation
 
 
-class BoomMainViewController : UIViewController, UINavigationControllerDelegate, BoomMenuViewControllerDelegate, BoomZoomViewDelegate {
+class BoomMainViewController : UIViewController, UINavigationControllerDelegate, BoomMenuViewControllerDelegate {
 	var meditatingView: BoomMeditatingView!
 	let contentNavigationController = BoomNavigationController()
 	var audioPlayerViewController : AudioPlayerViewController!
+    var emptyViewController: UIViewController!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		meditatingView = BoomMeditatingView(frame: view.bounds, contentView: contentNavigationController.view)
-		meditatingView.zoomView.delegate = self
-
-
-		audioPlayerViewController = AudioPlayerViewController()
-		let subView = BoomAudioPlayerContainer(frame: self.view.bounds, audioControls: audioPlayerViewController.view, contentView: meditatingView)
-
-		//let subView = meditatingView
-		view.addSubview(subView)
-		
-		subView.snp_makeConstraints { (make) -> Void in
-			make.edges.equalTo(self.view)
-		}
+        setupMeditatingView()
 		setupContentNavigationController()
 		Model.updateIfNecessary(nil)
 	}
-	
-	
-	func setupContentNavigationController() {
-		contentNavigationController.delegate = self
-		addChildViewController(contentNavigationController)
-		pushMenuViewController()
-	}
-	
+    
+    func setupMeditatingView()
+    {
+        meditatingView = BoomMeditatingView(frame: view.bounds, contentView: contentNavigationController.view)
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeMeditatingView(_:)))
+        swipe.direction = UISwipeGestureRecognizerDirection.Left
+        meditatingView.addGestureRecognizer(swipe)
+        meditatingView.circlesView.onTapSunAndMoon(self, action: #selector(didTapSunAndMoon(_:)))
+
+        audioPlayerViewController = AudioPlayerViewController()
+        let subView = BoomAudioPlayerContainer(frame: self.view.bounds, audioControls: audioPlayerViewController.view, contentView: meditatingView)
+        view.addSubview(subView)
+        
+        subView.snp_makeConstraints { (make) -> Void in
+            make.edges.equalTo(self.view)
+        }
+
+    }
+    
+    func setupContentNavigationController() {
+        contentNavigationController.delegate = self
+        addChildViewController(contentNavigationController)
+        pushMenuViewController()
+    }
+
 	func pushMenuViewController() {
-		let menuViewController = BoomMenuViewController()
+        let menuViewController = BoomMenuViewController()
 		menuViewController.delegate = self
 		menuViewController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-		contentNavigationController.pushViewController(menuViewController, animated: false)
+		contentNavigationController.pushViewController(menuViewController, animated: true)
+
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeMenuView(_:)))
+        swipe.direction = UISwipeGestureRecognizerDirection.Right
+        
+        menuViewController.view .addGestureRecognizer(swipe)
 	}
-	
+    
+
+    //Actions
+    
+    func didTapSunAndMoon(sender: UITapGestureRecognizer)
+    {
+        meditatingView.showContentView()
+    }
+    
+    func didSwipeMenuView(sender: UISwipeGestureRecognizer)
+    {
+        meditatingView.minimizeContentView(false, completion:nil)
+    }
+
+    func didSwipeMeditatingView(sender: UISwipeGestureRecognizer)
+    {
+        meditatingView.showContentView()
+    }
+
 	func didTapOutsideOfMenu() {
 		meditatingView.toggleRotation()
 	}
 	
 	func didTapMenuLogo() {
-		meditatingView.minimizeContentView(nil)
+        showAbout()
 	}
-	
-	func boomZoomDidZoomToMinScale(boomZoom: BoomZoomView) {
-		meditatingView.showContentView()
-	}
-	
+		
 	func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
 		if viewController is BoomMenuViewController {
 			navigationController.navigationBarHidden = true
@@ -78,7 +103,7 @@ class BoomMainViewController : UIViewController, UINavigationControllerDelegate,
 	func didSelectMenuItem(menuItem: MenuItem) {
 		let key = menuItem.title.lowercaseString
 		
-		meditatingView.minimizeContentView() {
+		meditatingView.minimizeContentView(true) {
 
 			self.meditatingView.zoomToRandomPoint() {
 				self.meditatingView.contentView.transform = CGAffineTransformIdentity
