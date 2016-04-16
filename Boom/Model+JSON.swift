@@ -150,9 +150,12 @@ class Model {
 					return
 				}
 				
-				NSLog("Model.updateIfNecessary(): importing JSON...")
-				Model.importFromJSONData(realm, data: data)
-				NSLog("Model.updateIfNecessary(): updated done.")
+                dispatch_async(dispatch_queue_create("background", nil), {
+                    NSLog("Model.updateIfNecessary(): importing JSON...")
+                    Model.importFromJSONData(realm, data: data)
+                    NSLog("Model.updateIfNecessary(): updated done.")
+                })
+                
 		}
 	}
 	static func importFromJSONData(realm: Realm, data: NSData){
@@ -161,6 +164,8 @@ class Model {
         
         do
         {
+            let realm = try! Realm()
+            
             try realm.write {
                 realm.deleteAll()
                 for (var key,item):(String, JSON) in json {
