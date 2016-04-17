@@ -21,14 +21,14 @@ struct MenuItem {
 	}
 }
 
-protocol BoomMenuDelegate {
+protocol BoomMenuDelegate : class {
 	func didSelectMenuItem(menuItem: MenuItem)
 	func didTapMenuLogo()
 }
 
 class BoomMenuCollectionViewController : UICollectionViewController, UICollectionViewDelegateFlowLayout {
 	var menuItems: [MenuItem] = []
-	var delegate: BoomMenuDelegate?
+	weak var delegate: BoomMenuDelegate?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

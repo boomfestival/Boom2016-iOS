@@ -118,19 +118,14 @@ import Alamofire
 
 class Model {
 
-	//static var dbURL = "http://www.boomhub.org/db/results.json"
-	
     static var dbURL = "https://www.boomfestival.org/boom2016/mobile-app/feed4iosapp/"
     static var realm: Realm?
+    static var isDevMode = false
 	
 	static func updateIfNecessary(callback: ((err: NSError?)->Void)?) {
 
 		NSLog("Model.updateIfNecessary() running")
-		
-		guard let realm = self.realm else {
-			NSLog("Cannot update: realm is not avaiable")
-			return
-		}
+
 		
 		let url = Model.dbURL
 		//TODO: check age or version or something.
@@ -143,29 +138,73 @@ class Model {
 					callback?(err: error)
 					return
 				}
-				
+                
 				guard let data = data else {
 					NSLog("Response data is nil")
 					callback?(err: error)
 					return
 				}
-				
-                dispatch_async(dispatch_queue_create("background", nil), {
-                    NSLog("Model.updateIfNecessary(): importing JSON...")
-                    Model.importFromJSONData(realm, data: data)
-                    NSLog("Model.updateIfNecessary(): updated done.")
-                })
                 
+                asyncImportJSON(data)
 		}
 	}
-	static func importFromJSONData(realm: Realm, data: NSData){
+    
+    static func createCopy(realm: Realm) -> Bool
+    {
+        NSLog("Creating database copy")
+
+        func bundlePath(path: String) -> String? {
+            let resourcePath = NSBundle.mainBundle().resourcePath as NSString?
+            return resourcePath?.stringByAppendingPathComponent(path)
+        }
+        
+        if let backupPath = bundlePath("seed.realm")
+        {
+            do
+            {
+                try NSFileManager.defaultManager().removeItemAtPath(backupPath)
+                try realm.writeCopyToPath(backupPath)
+                NSLog("Created database copy at \(backupPath)")
+                return true
+
+            }
+            catch
+            {
+                NSLog("Could not create database copy: \(error)")
+            }
+        }
+        return false
+    }
+    
+    static func asyncImportJSON(data: NSData)
+    {
+
+        dispatch_async(dispatch_queue_create("background", nil), {
+            NSLog("Async importing JSON...")
+            
+            guard let queueRealm = try? Realm() else
+            {
+                NSLog("Error creating background realm..")
+                return;
+            }
+            
+            importJSON(queueRealm, data: data)
+            
+            if isDevMode {
+                createCopy(queueRealm)
+            }
+            NSLog("Async import finished.")
+        })
+
+    }
+    
+    
+	private static func importJSON(realm: Realm, data: NSData){
 		var count = 0
 		let json = JSON(data: data)
-        
+        NSLog("importJSON: starting...")
         do
         {
-            let realm = try! Realm()
-            
             try realm.write {
                 realm.deleteAll()
                 for (var key,item):(String, JSON) in json {
@@ -174,38 +213,25 @@ class Model {
                     
                     if let entry = Entry.fromJSON(key, item: item){
                         
-                        NSLog("key=\(entry.key)");
+                        //NSLog("key=\(entry.key)");
                         count += 1
                         realm.add(entry)
                     }
                 }
+                do
+                {
+                   try realm.commitWrite()
+                }
+                catch _
+                {
+                    NSLog("Error: Realm commit write failed")
+                }
             }
+
         } catch _ {
-            NSLog("Error: Realm write failed");
+            NSLog("Error: Realm write failed")
         }
         
-		
-		NSLog("importFromJSONData: imported \(count) entries.")
-	}
-	
-	static func importFromBundle(realm: Realm){
-		NSLog("importFromBundle: importing model from bundle")
-		do {
-			try NSFileManager.defaultManager().removeItemAtPath(Realm.Configuration.defaultConfiguration.path!)
-		} catch _ {}
-		
-		let bundle = NSBundle.mainBundle().pathForResource("boom-db", ofType: "json")
-        if bundle != nil
-        {
-            guard let data = NSData(contentsOfFile: bundle!) else {
-                NSLog("Unable to load contents of file")
-                return
-            }
-            importFromJSONData(realm, data: data)
-            NSLog("importFromBundle: import finished")
-        } else
-        {
-            NSLog("Loading with empty db");
-        }
+		NSLog("importJSON: imported \(count) entries.")
 	}
 }

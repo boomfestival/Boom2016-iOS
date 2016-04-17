@@ -36,32 +36,13 @@ class BoomArticleViewController : BoomViewController, UIWebViewDelegate {
 		
 		webView.delegate = self
         
-        loadArticle()
+        self.setTitleText(self.article.title)
+        setPageContent()
 
 		//Uncomment if you want to be able to debug the javascript with Safari
 		//self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Set", style: .Plain, target: self, action: "setPageContent")
 	}
     
-    override func entryDidChange() {
-        loadArticle()
-    }
-    
-    func loadArticle()
-    {
-        guard let res = self.entry as? ArticleEntry else
-        {
-            NSLog("New entry not an article: ", self.entryKey)
-            return
-        }
-        self.article = res
-        
-        if (isViewLoaded())
-        {
-            self.setTitleText(self.article.title)
-            setPageContent()
-        }
-    }
-
 	func setPageContent() {
         
         guard isPageLoaded else { return }
@@ -119,4 +100,9 @@ class BoomArticleViewController : BoomViewController, UIWebViewDelegate {
 		}
 		return true
 	}
+    
+    deinit
+    {
+        NSLog("BoomArticleViewController is deiniting")
+    }
 }

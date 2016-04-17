@@ -15,7 +15,7 @@ protocol BoomMenuViewControllerDelegate : BoomMenuDelegate {
 class BoomMenuViewController : UIViewController {
 	var menuView: BoomMenuView!
 	var menuItemsCollectionView: BoomMenuCollectionViewController!
-	var delegate: BoomMenuViewControllerDelegate?
+	weak var delegate: BoomMenuViewControllerDelegate?
     var audioPlayerViewController: AudioPlayerViewController!
 	var menuItems: [MenuItem] {
 		get {
@@ -28,7 +28,8 @@ class BoomMenuViewController : UIViewController {
 				MenuItem("BOOMGUIDE", 0x0993f4, whiteColor),
 				MenuItem("GALLERY", 0xa25afb, whiteColor),
 				MenuItem("PARTICIPATE", 0xff49ac, whiteColor),
-				MenuItem("TICKETS", 0xffda00, black)
+				MenuItem("TICKETS", 0xffda00, black),
+                MenuItem("MULTILINGUAL", 0x13c0f4, whiteColor)
 				//MenuItem("RADIO", 0x13c0f4)
 			]
 		}
