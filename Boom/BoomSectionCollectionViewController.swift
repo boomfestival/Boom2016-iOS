@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import SDWebImage
 
-protocol BoomSectionDelegate {
+protocol BoomSectionDelegate : class {
 	func didSelectItem(item: SectionItem)
 }
 
@@ -18,7 +18,7 @@ class BoomListCollectionViewController : UICollectionViewController{
 	var cellBackgroundColor = UIColor.magentaColor()
 	var cellTextColor = UIColor.whiteColor()
 	var items: List<SectionItem>!
-	var delegate: BoomSectionDelegate?
+	weak var delegate: BoomSectionDelegate?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

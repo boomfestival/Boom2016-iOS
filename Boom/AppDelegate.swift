@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaultPath = Realm.Configuration.defaultConfiguration.path!
         
         do {
+            NSLog("prepareRealm(): copying seed database to \(defaultPath)")
+
             try NSFileManager.defaultManager().copyItemAtPath(path, toPath: defaultPath)
             
         } catch {
@@ -36,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSLog("Exception while copying database to default path: %s", defaultPath)
             return false
         }
+        
+        NSLog("prepareRealm(): success")
         
         return true
     }

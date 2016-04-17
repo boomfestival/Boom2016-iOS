@@ -35,9 +35,10 @@ extension String {
 			let options = NSJSONWritingOptions()
 			let escaped = try NSJSONSerialization.dataWithJSONObject([self], options: options)
 			if let jsonString = String(data: escaped, encoding: NSUTF8StringEncoding) {
-				let endIndex = jsonString.endIndex.advancedBy(-4)
+				let endIndex = jsonString.endIndex.advancedBy(-2)
 				let startIndex = jsonString.startIndex.advancedBy(2)
-				result = jsonString.substringWithRange(Range<String.Index>(start: startIndex, end: endIndex)) //NB: what an abomination! Swift, come on!
+                result = jsonString.substringWithRange(startIndex ..< endIndex)
+				//result = jsonString.substringWithRange(Range<String.Index>(start: startIndex, end: endIndex)) //NB: what an abomination! Swift, come on!
 			}
 		} catch (_) {}
 

@@ -4,6 +4,6 @@ You can download and examine the source code, modify and submit patches or use t
 You can also report bugs or suggest features by creating a new issue.
 
 Here's the Github repository:
-https://github.com/codeboost/Boom2016-iOS
+https://github.com/boomfestival/Boom2016-iOS
 
 

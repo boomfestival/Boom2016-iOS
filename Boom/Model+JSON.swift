@@ -202,7 +202,7 @@ class Model {
 	private static func importJSON(realm: Realm, data: NSData){
 		var count = 0
 		let json = JSON(data: data)
-        
+        NSLog("importJSON: starting...")
         do
         {
             try realm.write {
@@ -213,7 +213,7 @@ class Model {
                     
                     if let entry = Entry.fromJSON(key, item: item){
                         
-                        NSLog("key=\(entry.key)");
+                        //NSLog("key=\(entry.key)");
                         count += 1
                         realm.add(entry)
                     }
@@ -232,6 +232,6 @@ class Model {
             NSLog("Error: Realm write failed")
         }
         
-		NSLog("importFromJSONData: imported \(count) entries.")
+		NSLog("importJSON: imported \(count) entries.")
 	}
 }

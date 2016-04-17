@@ -108,7 +108,7 @@ class BoomZoomView : UIView, UIScrollViewDelegate {
 	
 	func scrollViewDidZoom(scrollView: UIScrollView) {
 		
-		NSLog("scrollViewDidZoom. zoomScale = \(self.scrollView.zoomScale)")
+		//NSLog("scrollViewDidZoom. zoomScale = \(self.scrollView.zoomScale)")
 		
 		if (self.scrollView.zoomScale == self.scrollView.minimumZoomScale){
 			//Center the subview

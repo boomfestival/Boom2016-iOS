@@ -16,58 +16,18 @@ class BoomViewController : UIViewController {
 	
 	var sectionColor = UIColor.blueColor()
 	var sectionTextColor = UIColor.whiteColor()
-    var realmNotification: RLMNotificationToken?
-    var entry: Entry?
     var entryKey: String = ""
     
 
     init()
     {
         super.init(nibName: nil, bundle: nil)
-        realmNotification = Model.realm!.addNotificationBlock { [weak self] notification, realm in
-            if let strongSelf = self
-            {
-                strongSelf.loadKey()
-            }
-        }
-    }
-    
-    convenience init(key: String)
-    {
-        self.init()
-        self.entryKey = key
-        loadKey()
-    }
-    
-    convenience init(entry: Entry)
-    {
-        self.init()
-        self.entry = entry
-        self.entryKey = entry.key
-    }
-    
-    deinit
-    {
-        realmNotification?.stop()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func loadKey()
-    {
-        guard let res = Entry.entryWithKey(Model.realm, key: self.entryKey) else
-        {
-            print("Entry is not available", self.entryKey)
-            self.dismissViewControllerAnimated(true, completion: nil)
-            return
-        }
-        self.entry = res
-        entryDidChange()
-    }
-    
-    func entryDidChange() {}
     
 	static func viewControllerForEntry(entry: Entry?) -> BoomViewController? {
 		guard let entry = entry else {
@@ -77,19 +37,23 @@ class BoomViewController : UIViewController {
 		var vc: BoomViewController?
 		if entry is SectionEntry {
 			
-            let sectionVC = BoomSectionViewController(entry: entry)
-			vc = sectionVC
+            let sectionViewController = BoomSectionViewController()
+            sectionViewController.section = entry as! SectionEntry
+			vc = sectionViewController
 		}
 		else if entry is ArticleEntry {
-			vc = BoomArticleViewController(entry: entry)
+			let articleViewController = BoomArticleViewController()
+            articleViewController.article = entry as! ArticleEntry
+            vc = articleViewController
 		}
 		else if entry is GalleryEntry {
-			let gallery = entry as! GalleryEntry
-            let galVC = BoomGalleryViewController(entry: entry)
-			galVC.galleryId = gallery.galleryId
-			vc = galVC
+            let galleryViewController = BoomGalleryViewController()
+            let gallery = entry as! GalleryEntry
+            galleryViewController.galleryId = gallery.galleryId
+			vc = galleryViewController
 			
 		}
+        vc?.entryKey = entry.key
 		return vc
 	}
     
