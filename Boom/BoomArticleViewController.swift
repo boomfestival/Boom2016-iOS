@@ -100,4 +100,9 @@ class BoomArticleViewController : BoomViewController, UIWebViewDelegate {
 		}
 		return true
 	}
+    
+    deinit
+    {
+        NSLog("BoomArticleViewController is deiniting")
+    }
 }
