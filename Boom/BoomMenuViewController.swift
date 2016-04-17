@@ -15,7 +15,7 @@ protocol BoomMenuViewControllerDelegate : BoomMenuDelegate {
 class BoomMenuViewController : UIViewController {
 	var menuView: BoomMenuView!
 	var menuItemsCollectionView: BoomMenuCollectionViewController!
-	var delegate: BoomMenuViewControllerDelegate?
+	weak var delegate: BoomMenuViewControllerDelegate?
     var audioPlayerViewController: AudioPlayerViewController!
 	var menuItems: [MenuItem] {
 		get {
