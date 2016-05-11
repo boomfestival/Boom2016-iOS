@@ -2,10 +2,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.3'
 use_frameworks!
 
-target 'Boom' do
+target 'Boom Festival Mobile' do
   pod 'SnapKit'
   pod 'Masonry'
-  pod 'RealmSwift'
   pod 'AFNetworking'
   pod 'SwiftyJSON'
   pod 'SDWebImage'
@@ -16,9 +15,10 @@ target 'Boom' do
   pod 'Bond'
   pod 'KDEAudioPlayer'
   pod "RFAboutView-Swift", '~> 1.0.11'
+  pod 'RealmSwift'
 end
 
 post_install do |installer|
   require 'fileutils'
-  FileUtils.cp_r('Pods/Target Support Files/Pods-Boom/Pods-Boom-acknowledgements.plist', 'Boom/Acknowledgements.plist', :remove_destination => true)
+  FileUtils.cp_r('Pods/Target Support Files/Pods-Boom Festival Mobile/Pods-Boom Festival Mobile-acknowledgements.plist', 'Boom/Acknowledgements.plist', :remove_destination => true)
 end

@@ -24,7 +24,7 @@ Clone the project locally, then run
 
 	pod install
 
-After that, open the Boom.xcworkspace file and you should be ready to go.
+After that, open the Boom Festival Mobile.xcworkspace file and you should be ready to go.
 
 ## License
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08C04913998F74C9FDBBEC5A /* Pods_Boom_Festival_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C66A5899D21FDF37E91531 /* Pods_Boom_Festival_Mobile.framework */; };
 		7F1AF5951CC2F53A00E897EC /* seed.realm in Resources */ = {isa = PBXBuildFile; fileRef = 7F1AF5941CC2F53A00E897EC /* seed.realm */; };
 		7F31B12F1BE81EAB00D08EA3 /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F31B12E1BE81EAB00D08EA3 /* AudioPlayerViewController.swift */; };
 		7F31B1311BE8DDAA00D08EA3 /* BoomMeditatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F31B1301BE8DDAA00D08EA3 /* BoomMeditatingView.swift */; };
@@ -43,12 +44,10 @@
 		7FE46B451BDC2BE300FE37DB /* BoomZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE46B421BDC2BE300FE37DB /* BoomZoomView.swift */; };
 		7FE46B461BDC2BE300FE37DB /* UIScrollView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE46B431BDC2BE300FE37DB /* UIScrollView+Ext.swift */; };
 		7FE46B471BDC2BE300FE37DB /* BoomCirclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE46B441BDC2BE300FE37DB /* BoomCirclesView.swift */; };
-		8A331FA6FC3B94EAAA4F7C4A /* Pods_Boom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0869EEBFBE729379C81AA70 /* Pods_Boom.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02A49DB29A5BCC0B8BEFC3F7 /* Pods-Boom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Boom/Pods-Boom.debug.xcconfig"; sourceTree = "<group>"; };
-		79C67B0D07C49A8F03DF159C /* Pods-Boom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boom.release.xcconfig"; path = "Pods/Target Support Files/Pods-Boom/Pods-Boom.release.xcconfig"; sourceTree = "<group>"; };
+		26F2AF84EA6E901AA044A3CA /* Pods-Boom Festival Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boom Festival Mobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-Boom Festival Mobile/Pods-Boom Festival Mobile.release.xcconfig"; sourceTree = "<group>"; };
 		7F1AF5941CC2F53A00E897EC /* seed.realm */ = {isa = PBXFileReference; lastKnownFileType = file; name = seed.realm; path = ../seed.realm; sourceTree = "<group>"; };
 		7F31B12E1BE81EAB00D08EA3 /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
 		7F31B1301BE8DDAA00D08EA3 /* BoomMeditatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomMeditatingView.swift; sourceTree = "<group>"; };
@@ -87,7 +86,8 @@
 		7FE46B421BDC2BE300FE37DB /* BoomZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomZoomView.swift; sourceTree = "<group>"; };
 		7FE46B431BDC2BE300FE37DB /* UIScrollView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ext.swift"; sourceTree = "<group>"; };
 		7FE46B441BDC2BE300FE37DB /* BoomCirclesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomCirclesView.swift; sourceTree = "<group>"; };
-		B0869EEBFBE729379C81AA70 /* Pods_Boom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B815B965DDDB5C5612BB704 /* Pods-Boom Festival Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boom Festival Mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Boom Festival Mobile/Pods-Boom Festival Mobile.debug.xcconfig"; sourceTree = "<group>"; };
+		C1C66A5899D21FDF37E91531 /* Pods_Boom_Festival_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boom_Festival_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,18 +95,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A331FA6FC3B94EAAA4F7C4A /* Pods_Boom.framework in Frameworks */,
+				08C04913998F74C9FDBBEC5A /* Pods_Boom_Festival_Mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4D832830778ED481B2A83E51 /* Pods */ = {
+		50A176198DF3667F93B2EAB2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				02A49DB29A5BCC0B8BEFC3F7 /* Pods-Boom.debug.xcconfig */,
-				79C67B0D07C49A8F03DF159C /* Pods-Boom.release.xcconfig */,
+				8B815B965DDDB5C5612BB704 /* Pods-Boom Festival Mobile.debug.xcconfig */,
+				26F2AF84EA6E901AA044A3CA /* Pods-Boom Festival Mobile.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -215,8 +215,8 @@
 			children = (
 				7F389FD41BCED0B400DBCD8A /* Boom */,
 				7F389FD31BCED0B400DBCD8A /* Products */,
-				4D832830778ED481B2A83E51 /* Pods */,
-				D896D306DAC38171190149FB /* Frameworks */,
+				50A176198DF3667F93B2EAB2 /* Pods */,
+				8576513BD5342F99DAE9AF20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -277,10 +277,10 @@
 			path = db;
 			sourceTree = "<group>";
 		};
-		D896D306DAC38171190149FB /* Frameworks */ = {
+		8576513BD5342F99DAE9AF20 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B0869EEBFBE729379C81AA70 /* Pods_Boom.framework */,
+				C1C66A5899D21FDF37E91531 /* Pods_Boom_Festival_Mobile.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -292,12 +292,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F389FE41BCED0B400DBCD8A /* Build configuration list for PBXNativeTarget "Boom Festival Mobile" */;
 			buildPhases = (
-				6950F76787F7815DEF5D3704 /* Check Pods Manifest.lock */,
+				3633A2B570DCA924B2BA2287 /* 📦 Check Pods Manifest.lock */,
 				7F389FCE1BCED0B400DBCD8A /* Sources */,
 				7F389FCF1BCED0B400DBCD8A /* Frameworks */,
 				7F389FD01BCED0B400DBCD8A /* Resources */,
-				A06F39DA79931CA8525BC0A6 /* Embed Pods Frameworks */,
-				E45C85A70E8064FC87E3C3C5 /* Copy Pods Resources */,
+				702D2B59DFD118ECFDDA8A5C /* 📦 Embed Pods Frameworks */,
+				02DF696DD6259746513DE2E1 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -366,14 +366,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6950F76787F7815DEF5D3704 /* Check Pods Manifest.lock */ = {
+		02DF696DD6259746513DE2E1 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boom Festival Mobile/Pods-Boom Festival Mobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3633A2B570DCA924B2BA2287 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,34 +396,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A06F39DA79931CA8525BC0A6 /* Embed Pods Frameworks */ = {
+		702D2B59DFD118ECFDDA8A5C /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boom/Pods-Boom-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E45C85A70E8064FC87E3C3C5 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boom/Pods-Boom-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Boom Festival Mobile/Pods-Boom Festival Mobile-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -553,7 +553,7 @@
 		};
 		7F389FE51BCED0B400DBCD8A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02A49DB29A5BCC0B8BEFC3F7 /* Pods-Boom.debug.xcconfig */;
+			baseConfigurationReference = 8B815B965DDDB5C5612BB704 /* Pods-Boom Festival Mobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -570,7 +570,7 @@
 		};
 		7F389FE61BCED0B400DBCD8A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 79C67B0D07C49A8F03DF159C /* Pods-Boom.release.xcconfig */;
+			baseConfigurationReference = 26F2AF84EA6E901AA044A3CA /* Pods-Boom Festival Mobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
